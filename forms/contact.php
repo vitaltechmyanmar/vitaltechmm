@@ -9,7 +9,7 @@
   // Replace contact@example.com with your real receiving email address
   $receiving_email_address = 'htetoowaiyan@vitaltechmyanmar.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
+  if( file_exists($php_email_form = 'assets/forms/contact.php' )) {
     include( $php_email_form );
   } else {
     die( 'Unable to load the "PHP Email Form" Library!');
@@ -29,7 +29,7 @@
      'host' => 'smtp.zoho.com',
      'username' => 'htetoowaiyan@vitaltechmyanmar.com',
      'password' => 'Dream@123!@#',
-     'port' => '465'
+     'port' => '587'
    );
   // */
 
