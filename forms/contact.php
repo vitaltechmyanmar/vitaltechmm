@@ -27,8 +27,8 @@
   // /*
     $contact->smtp = array(
      'host' => 'smtp.zoho.com',
-     'username' => 'htetoowaiyan@vitaltechmyanmar.com',
-     'password' => 'Dream@123!@#',
+     'username' => '',
+     'password' => '',
      'port' => '587'
    );
   // */
