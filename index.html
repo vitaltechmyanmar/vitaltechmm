@@ -4,1109 +4,958 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>VITAL TECH MYANMAR</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Vital Tech Myanmar | IT Solutions</title>
+  <meta name="description" content="Vital Tech Myanmar delivers cloud, infrastructure, cybersecurity, and managed IT solutions.">
+  <meta name="keywords" content="Vital Tech Myanmar, IT Solutions, Cloud, DevOps, Security">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/vtmm_logo.svg" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a1018;
+      --bg-soft: #111a27;
+      --text: #e9f2ff;
+      --muted: #9cb3c9;
+      --brand: #2fd3c6;
+      --brand-2: #ff8f5c;
+      --card: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.14);
+      --radius: 22px;
+    }
 
-  <!-- =======================================================
-  * Template Name: Techie
-  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(47, 211, 198, 0.2), transparent 36%),
+        radial-gradient(circle at 85% 8%, rgba(255, 143, 92, 0.16), transparent 34%),
+        linear-gradient(150deg, #081019, #0d1624 45%, #11172c);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .navbar-brand {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .site-nav {
+      backdrop-filter: blur(14px);
+      background: rgba(8, 14, 24, 0.72);
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .site-nav.nav-scrolled {
+      border-bottom-color: var(--line);
+      background: rgba(8, 14, 24, 0.9);
+    }
+
+    .nav-link {
+      color: #dbe9fb;
+      font-weight: 600;
+      opacity: 0.86;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff;
+      opacity: 1;
+    }
+
+    .btn-brand {
+      color: #052323;
+      border: 0;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--brand), #7de6de);
+      box-shadow: 0 12px 28px rgba(47, 211, 198, 0.28);
+    }
+
+    .btn-brand:hover {
+      color: #052323;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #eff6ff;
+    }
+
+    .hero {
+      position: relative;
+      padding: 10rem 0 5rem;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(1px);
+      pointer-events: none;
+      z-index: -1;
+      transition: transform 0.12s linear;
+    }
+
+    .orb-1 {
+      width: 330px;
+      height: 330px;
+      top: 5%;
+      left: -90px;
+      background: radial-gradient(circle, rgba(47, 211, 198, 0.45), rgba(47, 211, 198, 0));
+    }
+
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      right: -80px;
+      top: 20%;
+      background: radial-gradient(circle, rgba(255, 143, 92, 0.36), rgba(255, 143, 92, 0));
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      line-height: 1.08;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.05rem;
+    }
+
+    .glass-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .tilt-card {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .service-card:hover,
+    .portfolio-card:hover,
+    .team-card:hover {
+      border-color: rgba(255, 255, 255, 0.36);
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(47, 211, 198, 0.13);
+      border: 1px solid rgba(47, 211, 198, 0.3);
+      color: #aff2ec;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 2.1rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-box {
+      padding: 1.4rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .service-card,
+    .portfolio-card,
+    .team-card {
+      height: 100%;
+      padding: 1.5rem;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      font-size: 1.3rem;
+      background: linear-gradient(145deg, rgba(47, 211, 198, 0.26), rgba(47, 211, 198, 0.08));
+      color: #92efe7;
+      margin-bottom: 1rem;
+    }
+
+    .text-muted-custom {
+      color: var(--muted);
+    }
+
+    .portfolio-filter {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.3rem;
+    }
+
+    .portfolio-filter button {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      color: #d9e7f8;
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+      font-weight: 600;
+    }
+
+    .portfolio-filter button.active {
+      background: linear-gradient(95deg, rgba(47, 211, 198, 0.25), rgba(255, 143, 92, 0.25));
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #fff;
+    }
+
+    .portfolio-image {
+      border-radius: 14px;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      width: 100%;
+      margin-bottom: 1rem;
+      transition: transform 0.35s ease;
+    }
+
+    .portfolio-card:hover .portfolio-image {
+      transform: scale(1.04);
+    }
+
+    .portfolio-item {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .portfolio-item.hide {
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .team-photo {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .contact-box {
+      padding: 1.4rem;
+    }
+
+    .form-control,
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #edf7ff;
+      box-shadow: none;
+    }
+
+    .form-control::placeholder {
+      color: rgba(230, 242, 255, 0.5);
+    }
+
+    .floating {
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .hero-visual {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .hero-illustration {
+      display: block;
+      width: min(100%, 500px);
+      margin: 0 auto;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.42));
+    }
+
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #d9e9ff;
+      text-decoration: none;
+      margin-right: 0.45rem;
+      transition: all 0.25s ease;
+    }
+
+    .social-link:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 992px) {
+      .hero {
+        padding-top: 8rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 575px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="index-page">
+<body>
+  <header>
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top site-nav">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-white" href="#hero">VITAL TECH MYANMAR</a>
+        <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="desktopNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <a class="btn btn-brand ms-lg-3" href="https://blogs.vitaltechmyanmar.com" target="_blank" rel="noopener">Blog</a>
+        </div>
+      </div>
+    </nav>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">VITAL TECH MYANMAR</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
-          <li><a href="#contact">Contact</a></li>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+      <div class="offcanvas-header border-bottom border-secondary-subtle">
+        <h5 id="mobileNavLabel" class="mb-0">Navigation</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column gap-2">
+          <li><a class="nav-link" href="#hero" data-nav-close>Home</a></li>
+          <li><a class="nav-link" href="#about" data-nav-close>About</a></li>
+          <li><a class="nav-link" href="#services" data-nav-close>Services</a></li>
+          <li><a class="nav-link" href="#portfolio" data-nav-close>Portfolio</a></li>
+          <li><a class="nav-link" href="#team" data-nav-close>Team</a></li>
+          <li><a class="nav-link" href="#contact" data-nav-close>Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-      <a class="btn-getstarted" href="https://blogs.vitaltechmyanmar.com" target="_blank">BLOG</a>
-
+      </div>
     </div>
   </header>
 
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section accent-background">
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h2>Connect with Vital Tech & <br> Your Satisfaction is Our Goal.</h2>
-            <p>We’re IT Solution Company and strongly support your business requirements.</p>
-            <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
+  <main>
+    <section id="hero" class="hero">
+      <div class="orb orb-1" data-parallax="8"></div>
+      <div class="orb orb-2" data-parallax="14"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7" data-aos="fade-right">
+            <span class="badge-soft mb-3"><i class="bi bi-stars"></i> Enterprise IT Partner</span>
+            <h1 class="hero-title mb-3">Build resilient digital infrastructure for your business growth.</h1>
+            <p class="hero-sub mb-4">Vital Tech Myanmar provides cloud migration, cybersecurity, and operations support with a practical team that focuses on measurable business impact.</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#contact" class="btn btn-brand px-4 py-2">Start a Project</a>
+              <a href="#portfolio" class="btn btn-outline-light px-4 py-2">View Success Stories</a>
             </div>
           </div>
-          <div class="col-lg-5 order-1 order-lg-2 hero-img">
-            <img src="assets/img/main-2.png" class="img-fluid animated" alt="">
+          <div class="col-lg-5" data-aos="fade-left">
+            <div class="hero-visual tilt-card floating">
+              <img src="assets/img/main.png" class="hero-illustration" alt="Vital Tech Myanmar">
+            </div>
           </div>
         </div>
       </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>What We Do</h3>
-            <p class="fst-italic">
-              We specialize in delivering comprehensive digital solutions tailored to meet your business's unique needs. Our expertise spans across network management, system integration, and IT infrastructure, ensuring that your operations run smoothly and efficiently.
-            </p>
-            <!-- <ul>
-              <li><i class="bi bi-check-circle"></i> <span>1</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>2</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>3</span></li>
-            </ul> -->
-            <a href="#services" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section accent-background">
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="16" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Member</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Our Services</h2>
-        <p>We provide cutting-edge technology solutions that empower businesses to thrive in today’s digital landscape. Our comprehensive services are designed to meet the evolving needs of organizations across industries, offering tailored solutions that drive efficiency, security, and innovation.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-server"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Data Protection and  Storge Management </a></h4> <br>
-                <!-- <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p> -->
-
-              </div>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-hdd-rack-fill"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">System Administration & Asset Management</a></h4>
-                <!-- <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exa</p> -->
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-building-gear"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Datacenter Virtualization</a></h4>
-                <!-- <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p> -->
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-bricks"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Network Infra Security</a></h4>
-                <!-- <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p> -->
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-cloud"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Cloud Managed Services</a></h4>
-                <!-- <p class="description">Our Cloud Solution consulting company provides you with the resources and skill set the neccessary to </p> -->
-        
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">IT Consultation & Training</a></h4>
-                <!-- <p class="description">Et harum quidem rerum facilis est et expedita distinctio dasa fermo lind saca</p> -->
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <!-- <div class="container">
-
-        <div class="row gy-4 justify-content-between">
-          <div class="features-image col-lg-5 order-lg-2 d-flex align-items-center" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/features.svg" class="img-fluid" alt=""></div>
-          <div class="col-lg-6 d-flex flex-column justify-content-center"> -->
-
-            <!-- <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-archive flex-shrink-0"></i>
-              <div>
-                <h4>Est labore ad</h4>
-                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-              </div>
-            </div>End Features Item -->
-
-            <!-- <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-basket flex-shrink-0"></i>
-              <div>
-                <h4>Harum esse qui</h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-              </div>
-            </div>End Features Item -->
-
-            <!-- <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-broadcast flex-shrink-0"></i>
-              <div>
-                <h4>Aut occaecati</h4>
-                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-              </div>
-            </div>End Features Item -->
-
-            <!-- <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
-              <i class="bi bi-camera-reels flex-shrink-0"></i>
-              <div>
-                <h4>Beatae veritatis</h4>
-                <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-              </div>
-            </div>End Features Item
-
-          </div>
-        </div>
-
-      </div>
-
     </section>
 
-    <!-- Testimonials Section -->
-    <!-- <section id="testimonials" class="testimonials section light-background">
-
-      <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <!-- <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper"> -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item" "="">
-            <p>
-              <i class=" bi bi-quote quote-icon-left"></i>
-                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div>End testimonial item -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div> -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div> -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <!-- <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section> -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Some of the successful projects</p>
-      </div><!-- End Section Title -->
-
+    <section class="pt-2 pb-5">
       <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Success Story</li>
-            <!-- <li data-filter=".filter-app">Migration</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li> -->
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/migration.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/migration.png" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">M365 Tenant to Tenant Migration</a></h4>
-                  <p>Tenant to Tenant Migration to Office 365 was done by VTMM </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/dashboard.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/dashboard.png" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">IT Asset Project Implementation</a></h4>
-                  <p>We are Implementation Open Source IT Asset Management System for the business need.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/devops.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/devops.png" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">Corporate Training</a></h4>
-                  <p>DevOps Fundamentals Training</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/eksdeployment.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/eksdeployment.png" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">EKS Deployment</a></h4>
-                  <p>Container Application Deploy to EKS with Github Actions</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <a href="assets/img/portfolio/" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/" class="img-fluid" alt=""></a>
-                <div class="portfolio-info">
-                  <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Pricing Section -->
-    <!-- <section id="pricing" class="pricing section"> -->
-
-      <!-- Section Title -->
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div> -->
-
-      <!-- <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
-              <h3>Free Plan</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div> -->
-
-          <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <h3>Business Plan</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
-          </div> -->
-
-          <!-- <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Developer Plan</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-              </ul>
-              <a href="#" class="buy-btn">Buy Now</a>
-            </div>
+        <div class="stats-grid">
+          <div class="glass-card stat-box fade-up">
+            <div class="stat-number" data-counter="10">0</div>
+            <p class="text-muted-custom mb-0">Active Clients</p>
           </div>
-
+          <div class="glass-card stat-box fade-up">
+            <div class="stat-number" data-counter="20">0</div>
+            <p class="text-muted-custom mb-0">Delivered Projects</p>
+          </div>
+          <div class="glass-card stat-box fade-up">
+            <div class="stat-number" data-counter="1453">0</div>
+            <p class="text-muted-custom mb-0">Support Hours</p>
+          </div>
+          <div class="glass-card stat-box fade-up">
+            <div class="stat-number" data-counter="16">0</div>
+            <p class="text-muted-custom mb-0">Team Members</p>
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section> -->
-
-    <!-- Faq Section -->
-    <section id="faq" class="faq section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Frequently Ask Questions</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
-
+    <section id="about">
       <div class="container">
-
-        <div class="row justify-content-center">
-
-          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="faq-container">
-
-              <div class="faq-item faq-active">
-                <h3>What types of technical services does VTMM offer?</h3>
-                <div class="faq-content">
-                  <p>VTMM provides a range of technical services, including cloud solutions, cybersecurity, infrastructure management, custom software development, and IT consulting. We tailor our solutions to meet the specific needs of your business, ensuring optimal performance and security.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>How does VTMM handle cloud migration?</h3>
-                <div class="faq-content">
-                  <p>Our cloud architects follow a structured approach for seamless migration to cloud platforms like AWS, Azure, and Google Cloud. We assess your current infrastructure, design a migration plan, ensure data integrity, and minimize downtime during the transition.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3> What kind of support does VTMM provide for managed services?</h3>
-                <div class="faq-content">
-                  <p>VTMM offers 24/7 monitoring, regular system updates, security patches, and proactive maintenance for all managed services. Our support team is always available to resolve any issues quickly and ensure minimal disruption to your business.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>How can I request a consultation or quote for services?</h3>
-                <div class="faq-content">
-                  <p>You can easily request a consultation or quote by contacting us through our website, calling our support line, or emailing us at sales@vitaltechmyanmar.com. Our team will get in touch to understand your needs and provide a tailored solution.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>How does VTMM handle IT infrastructure management?</h3>
-                <div class="faq-content">
-                  <p>Our infrastructure management services include server management, network monitoring, database optimization, and disaster recovery planning. We ensure your IT environment is secure, optimized, and running smoothly 24/7.
-                  </p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Does VTMM offer DevOps services?</h3>
-                <div class="faq-content">
-                  <p>Yes, VTMM provides DevOps services to automate and streamline your development and operations processes. Our experts design and manage CI/CD pipelines, infrastructure automation, and cloud management, ensuring faster software delivery and improved operational efficiency.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6" data-aos="zoom-in-right">
+            <img src="assets/img/about.jpg" class="img-fluid rounded-4" alt="About Vital Tech Myanmar">
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="section-title">
+              <h2>What We Do</h2>
+              <p>We design and operate modern IT environments, from secure core networks to scalable cloud workloads. Our team is hands-on in architecture, migration, and managed operations.</p>
             </div>
-
-          </div><!-- End Faq Column-->
-
+            <div class="glass-card p-4">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <h6 class="mb-1">Infrastructure Engineering</h6>
+                  <p class="mb-0 text-muted-custom">Reliable on-prem and hybrid platforms.</p>
+                </div>
+                <div class="col-sm-6">
+                  <h6 class="mb-1">Cloud Transformation</h6>
+                  <p class="mb-0 text-muted-custom">Migration, automation, and cost control.</p>
+                </div>
+                <div class="col-sm-6">
+                  <h6 class="mb-1">Security Operations</h6>
+                  <p class="mb-0 text-muted-custom">Hardening, monitoring, and response plans.</p>
+                </div>
+                <div class="col-sm-6">
+                  <h6 class="mb-1">Managed Support</h6>
+                  <p class="mb-0 text-muted-custom">Proactive maintenance and rapid issue handling.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Faq Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Our Team Member</p>
-      </div><!-- End Section Title -->
-
+    <section id="services">
       <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/sittwaiyan.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sitt Wai Yan</h4>
-                <span>Chief Executive Officer</span>
-                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/ponemyat.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Pone Myat Thar</h4>
-                <span>Chief Technology Officer</span>
-                <p>I have over 6 years of experience in IT industry related to Systems and Network. 
-                  I have been managing data centers with a focus on both on-premise and cloud servers.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/waiyan.png" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Htet Oo Wai Yan</h4>
-                <span>Senior System Solution Engineer</span>
-                <p>I have over five years of experience in the IT industry, specializing in systems administration. I have successfully managed the entire virtual datacenter, overseeing its operations, performance, and infrastructure.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/kaungmyatthu.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Kaung Myo Thu</h4>
-                <span>Senior Network Engineer</span>
-                <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/kyawthet.png" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Kyaw Thet Htun</h4>
-                <span>Cloud Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Kyaw Swar Min</h4>
-                <span>Senior Cloud /DevOps Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/minchanmon.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Min Chan Mon</h4>
-                <span>System Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/sanhtutzaw.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>San Htut Zaw</h4>
-                <span>System / Network Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Our Services</h2>
+          <p>Practical enterprise services designed around uptime, performance, and secure growth.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="50">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-hdd-network"></i></div>
+              <h5>Data Protection & Storage</h5>
+              <p class="text-muted-custom mb-0">Backup architecture, disaster recovery, and efficient storage planning.</p>
             </div>
           </div>
-          
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/kothu.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Aung Myo Thu</h4>
-                <span>Senior Network Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-server"></i></div>
+              <h5>System Administration</h5>
+              <p class="text-muted-custom mb-0">Server lifecycle management, patching, and operational governance.</p>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Thurein Soe</h4>
-                <span>System Engineer</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-building-gear"></i></div>
+              <h5>Datacenter Virtualization</h5>
+              <p class="text-muted-custom mb-0">Virtual infrastructure optimization for performance and availability.</p>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/aungmyinthtun.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Aung Myint Htun</h4>
-                <span>IT Specialist</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
+              <h5>Network Security</h5>
+              <p class="text-muted-custom mb-0">Secure architecture, segmentation, and threat mitigation strategies.</p>
             </div>
           </div>
-
-          
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>San Lynn Aung</h4>
-                <span>IT Support Specialist</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+              <h5>Cloud Managed Services</h5>
+              <p class="text-muted-custom mb-0">Cloud operations, monitoring, CI/CD enablement, and cost governance.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card service-card tilt-card">
+              <div class="service-icon"><i class="bi bi-journal-code"></i></div>
+              <h5>IT Consulting & Training</h5>
+              <p class="text-muted-custom mb-0">Technical advisory and practical team training for long-term capacity.</p>
             </div>
           </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Team Section -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Portfolio</h2>
+          <p>Selected work that delivered clear outcomes for clients.</p>
+        </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+        <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="100">
+          <button class="active" data-filter="all">All</button>
+          <button data-filter="migration">Migration</button>
+          <button data-filter="automation">Automation</button>
+          <button data-filter="training">Training</button>
+        </div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6">
-
-            <div class="row gy-4">
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <!-- <p>A108 Adam Street</p> -->
-                  <p>Yangon, Myanmar</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Call Us</h3>
-                  <p>+959 964444882 </p>
-                  <p>+959 962379469</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@vitaltechmyanmar.com</p>
-                  <p>sales@vitaltechmyanmar.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="col-md-6">
-                <div class="info-item" data-aos="fade" data-aos-delay="500">
-                  <i class="bi bi-clock"></i>
-                  <h3>Open Hours</h3>
-                  <p>Monday - Friday</p>
-                  <p>9:00AM - 05:00PM</p>
-                </div>
-              </div><!-- End Info Item -->
-
-            </div>
-
+        <div class="row g-4 position-relative" id="portfolioGrid">
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="migration" data-aos="fade-up">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/migration.png" class="portfolio-image" alt="M365 Migration">
+              <h5 class="mb-2">M365 Tenant-to-Tenant Migration</h5>
+              <p class="text-muted-custom mb-0">End-to-end migration with planning, cutover, and user impact minimization.</p>
+            </article>
           </div>
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="100">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/dashboard.png" class="portfolio-image" alt="IT Asset Dashboard">
+              <h5 class="mb-2">IT Asset Management Implementation</h5>
+              <p class="text-muted-custom mb-0">Open-source asset platform deployment customized for enterprise workflows.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="training" data-aos="fade-up" data-aos-delay="150">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/devops.png" class="portfolio-image" alt="DevOps Training">
+              <h5 class="mb-2">DevOps Fundamentals Training</h5>
+              <p class="text-muted-custom mb-0">Team training on CI/CD, infrastructure as code, and delivery workflows.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="200">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/eksdeployment.png" class="portfolio-image" alt="EKS Deployment">
+              <h5 class="mb-2">Container Platform on EKS</h5>
+              <p class="text-muted-custom mb-0">Production-ready deployment pipeline using AWS EKS and GitHub Actions.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="migration" data-aos="fade-up" data-aos-delay="250">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/ticket.png" class="portfolio-image" alt="Ticketing">
+              <h5 class="mb-2">Service Desk Modernization</h5>
+              <p class="text-muted-custom mb-0">Ticketing workflow redesign to improve SLA tracking and response quality.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="300">
+            <article class="glass-card portfolio-card tilt-card">
+              <img src="assets/img/portfolio/moneypilot-theme.svg" class="portfolio-image" alt="MoneyPilot Web App Dashboard">
+              <h5 class="mb-2">MoneyPilot Web App</h5>
+              <p class="text-muted-custom mb-3">Finance workflow application built for operational visibility, tracking, and smarter day-to-day decisions.</p>
+              <a href="https://moneypilot.vitaltechmyanmar.com" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener">View Live App</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-lg-6">
-            <form action="assets/forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+    <section id="team">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Core Team</h2>
+          <p>Experienced engineers and leaders delivering enterprise-grade solutions.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4" data-aos="fade-up">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/sittwaiyan.jpg" class="team-photo" alt="Sitt Wai Yan">
+                <div>
+                  <h5 class="mb-1">Sitt Wai Yan</h5>
+                  <p class="mb-0 text-muted-custom">Chief Executive Officer</p>
                 </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              </div>
+              <p class="text-muted-custom mb-0">Driving strategy and customer success across enterprise IT transformation projects.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/ponemyat.jpg" class="team-photo" alt="Pone Myat Thar">
+                <div>
+                  <h5 class="mb-1">Pone Myat Thar</h5>
+                  <p class="mb-0 text-muted-custom">Chief Technology Officer</p>
                 </div>
-
-                <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+              </div>
+              <p class="text-muted-custom mb-0">Specialized in systems, networks, and datacenter operations across cloud and on-prem.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="180">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/waiyan.png" class="team-photo" alt="Htet Oo Wai Yan">
+                <div>
+                  <h5 class="mb-1">Htet Oo Wai Yan</h5>
+                  <p class="mb-0 text-muted-custom">Senior System Solution Engineer</p>
                 </div>
-
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+              </div>
+              <p class="text-muted-custom mb-0">Leads virtualization and infrastructure performance across client environments.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="220">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/kaungmyatthu.jpg" class="team-photo" alt="Kaung Myo Thu">
+                <div>
+                  <h5 class="mb-1">Kaung Myo Thu</h5>
+                  <p class="mb-0 text-muted-custom">Senior Network Engineer</p>
                 </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+              </div>
+              <p class="text-muted-custom mb-0">Designs and secures enterprise network infrastructure for stable operations.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="260">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/kyawthet.png" class="team-photo" alt="Kyaw Thet Htun">
+                <div>
+                  <h5 class="mb-1">Kyaw Thet Htun</h5>
+                  <p class="mb-0 text-muted-custom">Cloud Engineer</p>
                 </div>
+              </div>
+              <p class="text-muted-custom mb-0">Builds cloud deployments and operational tooling for production workloads.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Kyaw Swar Min">
+                <div>
+                  <h5 class="mb-1">Kyaw Swar Min</h5>
+                  <p class="mb-0 text-muted-custom">Senior Cloud / DevOps Engineer</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Automates delivery pipelines and improves reliability through DevOps practices.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="340">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/minchanmon.jpg" class="team-photo" alt="Min Chan Mon">
+                <div>
+                  <h5 class="mb-1">Min Chan Mon</h5>
+                  <p class="mb-0 text-muted-custom">System Engineer</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Supports server operations, monitoring, and system optimization tasks.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="380">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/sanhtutzaw.jpg" class="team-photo" alt="San Htut Zaw">
+                <div>
+                  <h5 class="mb-1">San Htut Zaw</h5>
+                  <p class="mb-0 text-muted-custom">System / Network Engineer</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Handles cross-domain support for systems and network infrastructure.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="420">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/kothu.jpg" class="team-photo" alt="Aung Myo Thu">
+                <div>
+                  <h5 class="mb-1">Aung Myo Thu</h5>
+                  <p class="mb-0 text-muted-custom">Senior Network Engineer</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Plans, deploys, and maintains high-availability enterprise networks.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="460">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Thurein Soe">
+                <div>
+                  <h5 class="mb-1">Thurein Soe</h5>
+                  <p class="mb-0 text-muted-custom">System Engineer</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Delivers day-to-day infrastructure support and systems administration.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/aungmyinthtun.jpg" class="team-photo" alt="Aung Myint Htun">
+                <div>
+                  <h5 class="mb-1">Aung Myint Htun</h5>
+                  <p class="mb-0 text-muted-custom">IT Specialist</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Provides technical implementation and operational support for IT services.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="540">
+            <div class="glass-card team-card">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="San Lynn Aung">
+                <div>
+                  <h5 class="mb-1">San Lynn Aung</h5>
+                  <p class="mb-0 text-muted-custom">IT Support Specialist</p>
+                </div>
+              </div>
+              <p class="text-muted-custom mb-0">Focuses on user support, endpoint readiness, and service continuity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="contact">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Tell us your current challenges and we will propose a practical implementation plan.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="glass-card contact-box mb-3">
+              <h6><i class="bi bi-geo-alt me-2"></i>Address</h6>
+              <p class="text-muted-custom mb-0">Yangon, Myanmar</p>
+            </div>
+            <div class="glass-card contact-box mb-3">
+              <h6><i class="bi bi-telephone me-2"></i>Call Us</h6>
+              <p class="text-muted-custom mb-0">+959 964444882<br>+959 962379469</p>
+            </div>
+            <div class="glass-card contact-box">
+              <h6><i class="bi bi-envelope me-2"></i>Email</h6>
+              <p class="text-muted-custom mb-0">info@vitaltechmyanmar.com<br>sales@vitaltechmyanmar.com</p>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <form action="forms/contact.php" method="post" class="glass-card p-4">
+              <div class="row g-3">
+                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
+                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+                <div class="col-12"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div>
+                <div class="col-12"><textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea></div>
+                <div class="col-12 d-grid d-sm-flex justify-content-sm-end">
+                  <button type="submit" class="btn btn-brand px-4">Send Message</button>
+                </div>
               </div>
             </form>
           </div>
-
         </div>
-
       </div>
-
-    </section><!-- /Contact Section -->
-
+    </section>
   </main>
 
-  <footer id="footer" class="footer accent-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Vital Tech Myanmar</span>
-          </a>
-          <p>Vital Tech Myanmar is a Tech company and we strongly support your business requirements. You may contact us for more information.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href="https://facebook.com/vitaltechmm" target="_blank"><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>Yangon</p>
-          <p></p>
-          <p>Myanmar</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+959 96 4444 882</span></p>
-          <p><strong>Email:</strong> <span>info@vitaltechmyanmar.com</span></p>
-        </div>
-
+  <footer class="py-4 mt-4">
+    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3">
+      <div>
+        <h6 class="mb-1">Vital Tech Myanmar</h6>
+        <p class="mb-0 text-muted-custom">Enterprise IT solutions for scalable and secure operations.</p>
+      </div>
+      <div>
+        <a href="https://facebook.com/vitaltechmm" class="social-link" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
-
-    <div class="container copyright text-center mt-12">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Vital Tech Myanmar</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootStrapMade</a> -->
-      </div>
-    </div>
-
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV1QN3JVRY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script>
+    const navbar = document.getElementById("navbar");
+    const sections = [...document.querySelectorAll("main section")];
+    const navLinks = [...document.querySelectorAll(".nav-link")];
 
-  gtag('config', 'G-PV1QN3JVRY');
-</script>
+    const toggleNavScroll = () => {
+      navbar.classList.toggle("nav-scrolled", window.scrollY > 40);
+    };
 
-<!--Start of Tawk.to Script-->
-<!--
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/66d9ce5a50c10f7a00a46802/1i71cs526';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+    const activateNav = () => {
+      const offset = window.scrollY + 140;
+      sections.forEach((section) => {
+        if (offset >= section.offsetTop && offset < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === `#${section.id}`);
+          });
+        }
+      });
+    };
+
+    const closeMobileNav = () => {
+      const offcanvasEl = document.getElementById("mobileNav");
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+      if (bsOffcanvas) bsOffcanvas.hide();
+    };
+
+    document.querySelectorAll("[data-nav-close]").forEach((link) => {
+      link.addEventListener("click", closeMobileNav);
+    });
+
+    document.addEventListener("mousemove", (event) => {
+      const x = (event.clientX / window.innerWidth - 0.5) * 22;
+      const y = (event.clientY / window.innerHeight - 0.5) * 22;
+
+      document.querySelectorAll("[data-parallax]").forEach((orb) => {
+        const strength = Number(orb.getAttribute("data-parallax"));
+        orb.style.transform = `translate(${x * (strength / 18)}px, ${y * (strength / 18)}px)`;
+      });
+    });
+
+    document.querySelectorAll(".tilt-card").forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width;
+        const py = (event.clientY - rect.top) / rect.height;
+        const rotateY = (px - 0.5) * 8;
+        const rotateX = (0.5 - py) * 8;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
+      });
+    });
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.getAttribute("data-counter"));
+        let start = 0;
+        const duration = 1200;
+        const stepTime = Math.max(16, Math.floor(duration / target));
+
+        const timer = setInterval(() => {
+          start += Math.ceil(target / 70);
+          if (start >= target) {
+            el.textContent = target.toLocaleString();
+            clearInterval(timer);
+          } else {
+            el.textContent = start.toLocaleString();
+          }
+        }, stepTime);
+
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll("[data-counter]").forEach((counter) => counterObserver.observe(counter));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("in-view");
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".fade-up").forEach((item) => revealObserver.observe(item));
+
+    document.querySelectorAll(".portfolio-filter button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".portfolio-filter button").forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.getAttribute("data-filter");
+        document.querySelectorAll(".portfolio-item").forEach((item) => {
+          const isMatch = filter === "all" || item.getAttribute("data-category") === filter;
+          item.classList.toggle("hide", !isMatch);
+        });
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      toggleNavScroll();
+      activateNav();
+    });
+
+    window.addEventListener("load", () => {
+      toggleNavScroll();
+      activateNav();
+      AOS.init({ duration: 800, once: true });
+    });
   </script>
--->
-  
-  <!--End of Tawk.to Script-->
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PV1QN3JVRY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-PV1QN3JVRY");
+  </script>
 </body>
 
 </html>
