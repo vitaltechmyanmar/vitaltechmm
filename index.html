@@ -21,15 +21,19 @@
 
   <style>
     :root {
-      --bg: #0a1018;
-      --bg-soft: #111a27;
+      --bg-base: #07131f;
+      --bg-elevated: #0b2236;
+      --bg-card: #123550;
       --text: #e9f2ff;
       --muted: #9cb3c9;
       --brand: #2fd3c6;
-      --brand-2: #ff8f5c;
+      --brand-2: #ff9f72;
       --card: rgba(255, 255, 255, 0.08);
       --line: rgba(255, 255, 255, 0.14);
       --radius: 22px;
+      --dur-fast: 220ms;
+      --dur-med: 320ms;
+      --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     * {
@@ -45,11 +49,31 @@
       font-family: "Sora", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 18% 12%, rgba(0, 186, 255, 0.18), transparent 38%),
-        radial-gradient(circle at 82% 10%, rgba(0, 255, 184, 0.14), transparent 34%),
-        linear-gradient(155deg, #07131f, #0b2236 48%, #123550);
+        radial-gradient(circle at 18% 12%, rgba(0, 186, 255, 0.16), transparent 38%),
+        radial-gradient(circle at 84% 10%, rgba(47, 211, 198, 0.14), transparent 34%),
+        linear-gradient(155deg, var(--bg-base), var(--bg-elevated) 50%, var(--bg-card));
       min-height: 100vh;
       overflow-x: hidden;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0 1px, transparent 1px 4px);
+      mix-blend-mode: soft-light;
+      opacity: 0.26;
+      z-index: -1;
+    }
+
+    main section {
+      content-visibility: auto;
+      contain-intrinsic-size: 800px;
     }
 
     h1,
@@ -66,7 +90,7 @@
       backdrop-filter: blur(14px);
       background: rgba(8, 14, 24, 0.72);
       border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
+      transition: all var(--dur-med) var(--ease-standard);
     }
 
     .site-nav.nav-scrolled {
@@ -78,6 +102,29 @@
       color: #dbe9fb;
       font-weight: 600;
       opacity: 0.86;
+    }
+
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 10px;
+      border: 0;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+      clip-path: inset(14% 0 14% 0 round 10px);
+    }
+
+    .brand-text {
+      line-height: 1;
     }
 
     .site-nav .navbar-nav .nav-link:hover,
@@ -94,6 +141,7 @@
       font-weight: 700;
       background: linear-gradient(90deg, var(--brand), #7de6de);
       box-shadow: 0 12px 28px rgba(47, 211, 198, 0.28);
+      transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-med) var(--ease-standard);
     }
 
     .btn-brand:hover {
@@ -152,7 +200,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       backdrop-filter: blur(8px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform var(--dur-med) var(--ease-standard), border-color var(--dur-med) var(--ease-standard);
     }
 
     .tilt-card {
@@ -181,6 +229,11 @@
 
     section {
       padding: 5rem 0;
+      position: relative;
+    }
+
+    section+section {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .section-title {
@@ -191,6 +244,7 @@
     .section-title p {
       color: var(--muted);
       margin: 0;
+      line-height: 1.72;
     }
 
     .stats-grid {
@@ -288,7 +342,7 @@
       object-fit: cover;
       width: 100%;
       margin-bottom: 1rem;
-      transition: transform 0.35s ease;
+      transition: transform var(--dur-med) var(--ease-standard);
     }
 
     .portfolio-card:hover .portfolio-image {
@@ -296,7 +350,7 @@
     }
 
     .portfolio-item {
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard);
     }
 
     .portfolio-item.hide {
@@ -317,6 +371,83 @@
 
     .contact-box {
       padding: 1.4rem;
+    }
+
+    .quote-card {
+      height: 100%;
+      padding: 1.4rem;
+      position: relative;
+    }
+
+    .quote-mark {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: rgba(47, 211, 198, 0.65);
+      margin-bottom: 0.55rem;
+    }
+
+    .client-role {
+      color: #cfe7ff;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.04);
+      color: #d9ebff;
+      border-radius: 999px;
+      padding: 0.45rem 0.82rem;
+      font-size: 0.82rem;
+      margin: 0.3rem 0.35rem 0 0;
+    }
+
+    .faq-shell {
+      padding: 1.5rem;
+    }
+
+    .faq-accordion .accordion-item {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    .faq-accordion .accordion-button {
+      background: rgba(255, 255, 255, 0.02);
+      color: #eff7ff;
+      font-weight: 600;
+      box-shadow: none;
+      padding: 1rem 1.1rem;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background: rgba(47, 211, 198, 0.13);
+      color: #dffffa;
+    }
+
+    .faq-accordion .accordion-button::after {
+      filter: invert(1) brightness(1.1);
+    }
+
+    .faq-accordion .accordion-body {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.95rem 1.1rem 1.1rem;
+    }
+
+    .cta-strip {
+      padding: 1.6rem;
+      background:
+        radial-gradient(circle at 12% 40%, rgba(47, 211, 198, 0.2), transparent 42%),
+        linear-gradient(120deg, rgba(17, 39, 58, 0.92), rgba(13, 53, 79, 0.86));
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .form-control,
@@ -374,7 +505,7 @@
     .fade-up {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity var(--dur-med) var(--ease-standard), transform var(--dur-med) var(--ease-standard);
     }
 
     .fade-up.in-view {
@@ -397,7 +528,7 @@
       color: #d9e9ff;
       text-decoration: none;
       margin-right: 0.45rem;
-      transition: all 0.25s ease;
+      transition: all var(--dur-fast) var(--ease-standard);
     }
 
     .social-link:hover {
@@ -406,13 +537,28 @@
       transform: translateY(-3px);
     }
 
+    .social-link-disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     @media (max-width: 992px) {
+      body::before {
+        display: none;
+      }
+
       section {
         padding: 4rem 0;
       }
 
       .navbar-brand {
         font-size: 0.95rem;
+      }
+
+      .brand-logo {
+        width: 32px;
+        height: 32px;
       }
 
       .offcanvas {
@@ -439,7 +585,10 @@
       .service-card,
       .portfolio-card,
       .team-card,
-      .contact-box {
+      .contact-box,
+      .quote-card,
+      .faq-shell,
+      .cta-strip {
         padding: 1.2rem;
       }
 
@@ -493,6 +642,10 @@
         white-space: nowrap;
       }
 
+      .trust-chip {
+        font-size: 0.78rem;
+      }
+
       .team-photo {
         width: 70px;
         height: 70px;
@@ -521,7 +674,10 @@
   <header>
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top site-nav">
       <div class="container">
-        <a class="navbar-brand fw-bold text-white" href="#hero">VITAL TECH MYANMAR</a>
+        <a class="navbar-brand fw-bold text-white brand-wrap" href="#hero">
+          <img src="assets/img/logo.jpg" class="brand-logo" alt="Vital Tech Myanmar logo" loading="eager" decoding="async" fetchpriority="high">
+          <span class="brand-text">VITAL TECH MYANMAR</span>
+        </a>
         <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
           <i class="bi bi-list fs-2"></i>
         </button>
@@ -574,7 +730,7 @@
           </div>
           <div class="col-lg-5" data-aos="fade-left">
             <div class="hero-visual tilt-card floating">
-              <img src="assets/img/main.png" class="hero-illustration" alt="Vital Tech Myanmar">
+              <img src="assets/img/main.webp" class="hero-illustration" alt="Vital Tech Myanmar" loading="eager" decoding="async" fetchpriority="high">
             </div>
           </div>
         </div>
@@ -608,7 +764,7 @@
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-lg-6" data-aos="zoom-in-right">
-            <img src="assets/img/about-section.png" class="about-image" alt="About Vital Tech Myanmar">
+            <img src="assets/img/about-section.webp" class="about-image" alt="About Vital Tech Myanmar" loading="lazy" decoding="async">
           </div>
           <div class="col-lg-6" data-aos="fade-left">
             <div class="section-title">
@@ -701,47 +857,79 @@
         </div>
 
         <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="100">
-          <button class="active" data-filter="all">All</button>
-          <button data-filter="migration">Migration</button>
-          <button data-filter="automation">Automation</button>
-          <button data-filter="training">Training</button>
+          <button type="button" class="active" data-filter="all">All</button>
+          <button type="button" data-filter="migration">Migration</button>
+          <button type="button" data-filter="automation">Automation</button>
+          <button type="button" data-filter="training">Training</button>
         </div>
 
         <div class="row g-4 position-relative" id="portfolioGrid">
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="migration" data-aos="fade-up">
             <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/migration.png" class="portfolio-image" alt="M365 Migration">
+              <img src="assets/img/portfolio/migration.webp" class="portfolio-image" alt="M365 Migration" loading="lazy" decoding="async">
               <h5 class="mb-2">M365 Tenant-to-Tenant Migration</h5>
               <p class="text-muted-custom mb-0">End-to-end migration with planning, cutover, and user impact minimization.</p>
             </article>
           </div>
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="100">
             <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/dashboard.png" class="portfolio-image" alt="IT Asset Dashboard">
+              <img src="assets/img/portfolio/dashboard.webp" class="portfolio-image" alt="IT Asset Dashboard" loading="lazy" decoding="async">
               <h5 class="mb-2">IT Asset Management Implementation</h5>
               <p class="text-muted-custom mb-0">Open-source asset platform deployment customized for enterprise workflows.</p>
             </article>
           </div>
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="training" data-aos="fade-up" data-aos-delay="150">
             <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/devops.png" class="portfolio-image" alt="DevOps Training">
+              <img src="assets/img/portfolio/devops.webp" class="portfolio-image" alt="DevOps Training" loading="lazy" decoding="async">
               <h5 class="mb-2">DevOps Fundamentals Training</h5>
               <p class="text-muted-custom mb-0">Team training on CI/CD, infrastructure as code, and delivery workflows.</p>
             </article>
           </div>
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="200">
             <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/eksdeployment.png" class="portfolio-image" alt="EKS Deployment">
+              <img src="assets/img/portfolio/eksdeployment.webp" class="portfolio-image" alt="EKS Deployment" loading="lazy" decoding="async">
               <h5 class="mb-2">Container Platform on EKS</h5>
               <p class="text-muted-custom mb-0">Production-ready deployment pipeline using AWS EKS and GitHub Actions.</p>
             </article>
           </div>
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="300">
             <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/moneypilot-theme.svg" class="portfolio-image" alt="MoneyPilot Web App Dashboard">
+              <img src="assets/img/portfolio/moneypilot-theme.svg" class="portfolio-image" alt="MoneyPilot Web App Dashboard" loading="lazy" decoding="async">
               <h5 class="mb-2">MoneyPilot Web App</h5>
               <p class="text-muted-custom mb-3">Finance workflow application built for operational visibility, tracking, and smarter day-to-day decisions.</p>
               <a href="https://moneypilot.vitaltechmyanmar.com" class="btn btn-sm btn-outline-light" target="_blank" rel="noopener">View Live App</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>What Clients Say</h2>
+          <p>Client feedback from enterprise projects delivered by Vital Tech Myanmar.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-4" data-aos="fade-up">
+            <article class="glass-card quote-card">
+              <div class="quote-mark">“</div>
+              <p class="mb-3">Their migration team handled planning and cutover with minimal disruption. We moved faster than expected and saw fewer support tickets after go-live.</p>
+              <p class="mb-0 client-role">IT Manager, Logistics Company</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="110">
+            <article class="glass-card quote-card">
+              <div class="quote-mark">“</div>
+              <p class="mb-3">Security hardening and monitoring setup were practical and clear. Response times improved and our audit preparation became much easier.</p>
+              <p class="mb-0 client-role">Head of Infrastructure, Financial Services</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="190">
+            <article class="glass-card quote-card">
+              <div class="quote-mark">“</div>
+              <p class="mb-3">Their team works like an extension of ours. Reliable communication, strong technical ownership, and measurable improvements in uptime.</p>
+              <p class="mb-0 client-role">Operations Lead, Manufacturing Group</p>
             </article>
           </div>
         </div>
@@ -758,7 +946,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/sittwaiyan.jpg" class="team-photo" alt="Sitt Wai Yan">
+                <img src="assets/img/team/sittwaiyan.jpg" class="team-photo" alt="Sitt Wai Yan" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Sitt Wai Yan</h5>
                   <p class="mb-0 text-muted-custom">Chief Executive Officer</p>
@@ -770,7 +958,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="120">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/ponemyat.jpg" class="team-photo" alt="Pone Myat Thar">
+                <img src="assets/img/team/ponemyat.webp" class="team-photo" alt="Pone Myat Thar" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Pone Myat Thar</h5>
                   <p class="mb-0 text-muted-custom">Chief Technology Officer</p>
@@ -782,7 +970,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="180">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/waiyan.png" class="team-photo" alt="Htet Oo Wai Yan">
+                <img src="assets/img/team/waiyan.webp" class="team-photo" alt="Htet Oo Wai Yan" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Htet Oo Wai Yan</h5>
                   <p class="mb-0 text-muted-custom">Senior System Solution Engineer</p>
@@ -794,9 +982,9 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="220">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/kaungmyatthu.jpg" class="team-photo" alt="Kaung Myo Thu">
+                <img src="assets/img/team/kaungmyatthu.webp" class="team-photo" alt="Kaung Myo Thu" loading="lazy" decoding="async">
                 <div>
-                  <h5 class="mb-1">Kaung Myo Thu</h5>
+                  <h5 class="mb-1">Kaung Myat Thu</h5>
                   <p class="mb-0 text-muted-custom">Senior Network Engineer</p>
                 </div>
               </div>
@@ -806,7 +994,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="260">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/kyawthet.png" class="team-photo" alt="Kyaw Thet Htun">
+                <img src="assets/img/team/kyawthet.webp" class="team-photo" alt="Kyaw Thet Htun" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Kyaw Thet Htun</h5>
                   <p class="mb-0 text-muted-custom">Cloud Engineer</p>
@@ -818,7 +1006,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Kyaw Swar Min">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Kyaw Swar Min" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Kyaw Swar Min</h5>
                   <p class="mb-0 text-muted-custom">Senior Cloud / DevOps Engineer</p>
@@ -830,7 +1018,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="340">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/minchanmon.jpg" class="team-photo" alt="Min Chan Mon">
+                <img src="assets/img/team/minchanmon.webp" class="team-photo" alt="Min Chan Mon" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Min Chan Mon</h5>
                   <p class="mb-0 text-muted-custom">System Engineer</p>
@@ -842,7 +1030,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="380">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/sanhtutzaw.jpg" class="team-photo" alt="San Htut Zaw">
+                <img src="assets/img/team/sanhtutzaw.webp" class="team-photo" alt="San Htut Zaw" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">San Htut Zaw</h5>
                   <p class="mb-0 text-muted-custom">System / Network Engineer</p>
@@ -854,7 +1042,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="420">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/kothu.jpg" class="team-photo" alt="Aung Myo Thu">
+                <img src="assets/img/team/kothu.webp" class="team-photo" alt="Aung Myo Thu" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Aung Myo Thu</h5>
                   <p class="mb-0 text-muted-custom">Senior Network Engineer</p>
@@ -866,7 +1054,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="460">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Thurein Soe">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Thurein Soe" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Thurein Soe</h5>
                   <p class="mb-0 text-muted-custom">System Engineer</p>
@@ -878,7 +1066,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="500">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/aungmyinthtun.jpg" class="team-photo" alt="Aung Myint Htun">
+                <img src="assets/img/team/aungmyinthtun.webp" class="team-photo" alt="Aung Myint Htun" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Aung Myint Htun</h5>
                   <p class="mb-0 text-muted-custom">IT Specialist</p>
@@ -890,7 +1078,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="540">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="San Lynn Aung">
+                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="San Lynn Aung" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">San Lynn Aung</h5>
                   <p class="mb-0 text-muted-custom">IT Support Specialist</p>
@@ -899,6 +1087,66 @@
               <p class="text-muted-custom mb-0">Focuses on user support, endpoint readiness, and service continuity.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Frequently Asked Questions</h2>
+          <p>Common pre-sales questions about delivery timelines, support model, and engagement scope.</p>
+        </div>
+        <div class="glass-card faq-shell" data-aos="fade-up" data-aos-delay="100">
+          <div class="accordion faq-accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                  How long does a typical project take?
+                </button>
+              </h3>
+              <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Small projects can take 2 to 4 weeks, while migration or platform modernization usually runs 6 to 12 weeks depending on complexity and dependencies.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                  Do you provide managed support after delivery?
+                </button>
+              </h3>
+              <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes. We provide managed support with agreed SLA, proactive monitoring, patching plans, and escalation workflow based on your operating hours.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                  Can you work with existing tools and infrastructure?
+                </button>
+              </h3>
+              <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Absolutely. We start with an assessment of your current environment and design a phased plan that improves reliability without forcing unnecessary tool replacement.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-strip d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3" data-aos="fade-up">
+          <div>
+            <h4 class="mb-2">Need a practical plan for your next IT project?</h4>
+            <p class="text-muted-custom mb-2">Book a free consultation and get a scoped action plan from our engineering team.</p>
+            <div>
+              <span class="trust-chip"><i class="bi bi-lightning-charge"></i> Fast Response</span>
+              <span class="trust-chip"><i class="bi bi-shield-check"></i> Enterprise Focus</span>
+              <span class="trust-chip"><i class="bi bi-graph-up-arrow"></i> Outcome Driven</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-brand px-4 py-2">Book Free Consultation</a>
         </div>
       </div>
     </section>
@@ -954,9 +1202,9 @@
         <p class="mb-0 text-muted-custom">Enterprise IT solutions for scalable and secure operations.</p>
       </div>
       <div>
-        <a href="https://facebook.com/vitaltechmm" class="social-link" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+        <a href="https://facebook.com/vitaltechmm" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <span class="social-link social-link-disabled" aria-disabled="true" title="LinkedIn - Coming soon"><i class="bi bi-linkedin"></i></span>
+        <span class="social-link social-link-disabled" aria-disabled="true" title="Instagram - Coming soon"><i class="bi bi-instagram"></i></span>
       </div>
     </div>
   </footer>
@@ -1031,6 +1279,11 @@
           if (!entry.isIntersecting) return;
           const el = entry.target;
           const target = Number(el.getAttribute("data-counter"));
+          if (!Number.isFinite(target) || target <= 0) {
+            el.textContent = "0";
+            observer.unobserve(el);
+            return;
+          }
           let start = 0;
           const duration = 1200;
           const stepTime = Math.max(16, Math.floor(duration / target));
@@ -1057,18 +1310,6 @@
       });
     }
 
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("in-view");
-        });
-      }, { threshold: 0.2 });
-
-      document.querySelectorAll(".fade-up").forEach((item) => revealObserver.observe(item));
-    } else {
-      document.querySelectorAll(".fade-up").forEach((item) => item.classList.add("in-view"));
-    }
-
     document.querySelectorAll(".portfolio-filter button").forEach((button) => {
       button.addEventListener("click", () => {
         document.querySelectorAll(".portfolio-filter button").forEach((btn) => btn.classList.remove("active"));
@@ -1082,28 +1323,49 @@
       });
     });
 
+    let scrollTicking = false;
     window.addEventListener("scroll", () => {
-      toggleNavScroll();
-      activateNav();
-    });
+      if (scrollTicking) return;
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        toggleNavScroll();
+        activateNav();
+        scrollTicking = false;
+      });
+    }, { passive: true });
 
     document.addEventListener("DOMContentLoaded", () => {
       toggleNavScroll();
       activateNav();
       if (window.AOS && typeof AOS.init === "function") {
-        AOS.init({ duration: 800, once: true });
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        AOS.init({
+          duration: 700,
+          once: true,
+          disable: reduceMotion || window.innerWidth < 768
+        });
       }
     });
   </script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PV1QN3JVRY"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
     }
-    gtag("js", new Date());
-    gtag("config", "G-PV1QN3JVRY");
+    const loadAnalytics = () => {
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-PV1QN3JVRY";
+      document.head.appendChild(s);
+      gtag("js", new Date());
+      gtag("config", "G-PV1QN3JVRY");
+    };
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(loadAnalytics, { timeout: 2500 });
+    } else {
+      setTimeout(loadAnalytics, 1600);
+    }
   </script>
 </body>
 
