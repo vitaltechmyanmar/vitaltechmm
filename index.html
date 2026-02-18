@@ -45,9 +45,9 @@
       font-family: "Sora", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(47, 211, 198, 0.2), transparent 36%),
-        radial-gradient(circle at 85% 8%, rgba(255, 143, 92, 0.16), transparent 34%),
-        linear-gradient(150deg, #081019, #0d1624 45%, #11172c);
+        radial-gradient(circle at 18% 12%, rgba(0, 186, 255, 0.18), transparent 38%),
+        radial-gradient(circle at 82% 10%, rgba(0, 255, 184, 0.14), transparent 34%),
+        linear-gradient(155deg, #07131f, #0b2236 48%, #123550);
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -233,6 +233,33 @@
       color: var(--muted);
     }
 
+    .php-email-form .loading,
+    .php-email-form .error-message,
+    .php-email-form .sent-message {
+      display: none;
+      margin-top: 1rem;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .php-email-form .loading {
+      background: rgba(255, 255, 255, 0.08);
+      color: #d9e7f8;
+    }
+
+    .php-email-form .error-message {
+      background: rgba(220, 53, 69, 0.14);
+      color: #ffd7dc;
+      border: 1px solid rgba(220, 53, 69, 0.4);
+    }
+
+    .php-email-form .sent-message {
+      background: rgba(25, 135, 84, 0.14);
+      color: #c8f5de;
+      border: 1px solid rgba(25, 135, 84, 0.4);
+    }
+
     .portfolio-filter {
       display: flex;
       gap: 0.7rem;
@@ -335,8 +362,8 @@
     }
 
     .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
@@ -370,8 +397,44 @@
     }
 
     @media (max-width: 992px) {
+      section {
+        padding: 4rem 0;
+      }
+
+      .navbar-brand {
+        font-size: 0.95rem;
+      }
+
+      .offcanvas {
+        width: min(86vw, 360px);
+      }
+
       .hero {
-        padding-top: 8rem;
+        padding: 7.5rem 0 3.5rem;
+      }
+
+      .hero .row {
+        text-align: center;
+      }
+
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero .d-flex {
+        justify-content: center;
+      }
+
+      .service-card,
+      .portfolio-card,
+      .team-card,
+      .contact-box {
+        padding: 1.2rem;
+      }
+
+      .portfolio-filter {
+        gap: 0.55rem;
       }
 
       .stats-grid {
@@ -380,6 +443,63 @@
     }
 
     @media (max-width: 575px) {
+      section {
+        padding: 3.2rem 0;
+      }
+
+      .hero {
+        padding-top: 6.8rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.72rem, 9vw, 2.2rem);
+      }
+
+      .hero-sub {
+        font-size: 0.96rem;
+      }
+
+      .hero .d-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero .btn {
+        width: 100%;
+      }
+
+      .badge-soft {
+        font-size: 0.74rem;
+      }
+
+      .portfolio-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.35rem;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .portfolio-filter button {
+        white-space: nowrap;
+      }
+
+      .team-photo {
+        width: 70px;
+        height: 70px;
+      }
+
+      .navbar-toggler {
+        padding: 0.25rem 0.35rem;
+      }
+
+      .navbar-toggler .bi {
+        font-size: 1.7rem !important;
+      }
+
+      .social-link {
+        margin-right: 0.3rem;
+      }
+
       .stats-grid {
         grid-template-columns: 1fr;
       }
@@ -606,13 +726,6 @@
               <p class="text-muted-custom mb-0">Production-ready deployment pipeline using AWS EKS and GitHub Actions.</p>
             </article>
           </div>
-          <div class="col-md-6 col-xl-4 portfolio-item" data-category="migration" data-aos="fade-up" data-aos-delay="250">
-            <article class="glass-card portfolio-card tilt-card">
-              <img src="assets/img/portfolio/ticket.png" class="portfolio-image" alt="Ticketing">
-              <h5 class="mb-2">Service Desk Modernization</h5>
-              <p class="text-muted-custom mb-0">Ticketing workflow redesign to improve SLA tracking and response quality.</p>
-            </article>
-          </div>
           <div class="col-md-6 col-xl-4 portfolio-item" data-category="automation" data-aos="fade-up" data-aos-delay="300">
             <article class="glass-card portfolio-card tilt-card">
               <img src="assets/img/portfolio/moneypilot-theme.svg" class="portfolio-image" alt="MoneyPilot Web App Dashboard">
@@ -802,12 +915,17 @@
             </div>
           </div>
           <div class="col-lg-7" data-aos="fade-left">
-            <form action="forms/contact.php" method="post" class="glass-card p-4">
+            <form action="forms/contact.php" method="post" class="glass-card p-4 php-email-form">
               <div class="row g-3">
                 <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
                 <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
                 <div class="col-12"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div>
                 <div class="col-12"><textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea></div>
+                <div class="col-12">
+                  <div class="loading">Sending...</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
                 <div class="col-12 d-grid d-sm-flex justify-content-sm-end">
                   <button type="submit" class="btn btn-brand px-4">Send Message</button>
                 </div>
@@ -835,6 +953,7 @@
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script>
     const navbar = document.getElementById("navbar");
@@ -858,6 +977,7 @@
 
     const closeMobileNav = () => {
       const offcanvasEl = document.getElementById("mobileNav");
+      if (!offcanvasEl || !window.bootstrap || !bootstrap.Offcanvas) return;
       const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
       if (bsOffcanvas) bsOffcanvas.hide();
     };
@@ -866,63 +986,78 @@
       link.addEventListener("click", closeMobileNav);
     });
 
-    document.addEventListener("mousemove", (event) => {
-      const x = (event.clientX / window.innerWidth - 0.5) * 22;
-      const y = (event.clientY / window.innerHeight - 0.5) * 22;
+    const supportsHoverPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-      document.querySelectorAll("[data-parallax]").forEach((orb) => {
-        const strength = Number(orb.getAttribute("data-parallax"));
-        orb.style.transform = `translate(${x * (strength / 18)}px, ${y * (strength / 18)}px)`;
-      });
-    });
+    if (supportsHoverPointer) {
+      document.addEventListener("mousemove", (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * 22;
+        const y = (event.clientY / window.innerHeight - 0.5) * 22;
 
-    document.querySelectorAll(".tilt-card").forEach((card) => {
-      card.addEventListener("mousemove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const px = (event.clientX - rect.left) / rect.width;
-        const py = (event.clientY - rect.top) / rect.height;
-        const rotateY = (px - 0.5) * 8;
-        const rotateX = (0.5 - py) * 8;
-        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        document.querySelectorAll("[data-parallax]").forEach((orb) => {
+          const strength = Number(orb.getAttribute("data-parallax"));
+          orb.style.transform = `translate(${x * (strength / 18)}px, ${y * (strength / 18)}px)`;
+        });
       });
 
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
+      document.querySelectorAll(".tilt-card").forEach((card) => {
+        card.addEventListener("mousemove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const px = (event.clientX - rect.left) / rect.width;
+          const py = (event.clientY - rect.top) / rect.height;
+          const rotateY = (px - 0.5) * 8;
+          const rotateX = (0.5 - py) * 8;
+          card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
+        });
       });
-    });
+    }
 
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = Number(el.getAttribute("data-counter"));
-        let start = 0;
-        const duration = 1200;
-        const stepTime = Math.max(16, Math.floor(duration / target));
+    if ("IntersectionObserver" in window) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = Number(el.getAttribute("data-counter"));
+          let start = 0;
+          const duration = 1200;
+          const stepTime = Math.max(16, Math.floor(duration / target));
 
-        const timer = setInterval(() => {
-          start += Math.ceil(target / 70);
-          if (start >= target) {
-            el.textContent = target.toLocaleString();
-            clearInterval(timer);
-          } else {
-            el.textContent = start.toLocaleString();
-          }
-        }, stepTime);
+          const timer = setInterval(() => {
+            start += Math.ceil(target / 70);
+            if (start >= target) {
+              el.textContent = target.toLocaleString();
+              clearInterval(timer);
+            } else {
+              el.textContent = start.toLocaleString();
+            }
+          }, stepTime);
 
-        observer.unobserve(el);
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+
+      document.querySelectorAll("[data-counter]").forEach((counter) => counterObserver.observe(counter));
+    } else {
+      document.querySelectorAll("[data-counter]").forEach((counter) => {
+        const target = Number(counter.getAttribute("data-counter"));
+        counter.textContent = Number.isFinite(target) ? target.toLocaleString() : "0";
       });
-    }, { threshold: 0.4 });
+    }
 
-    document.querySelectorAll("[data-counter]").forEach((counter) => counterObserver.observe(counter));
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("in-view");
+        });
+      }, { threshold: 0.2 });
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("in-view");
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll(".fade-up").forEach((item) => revealObserver.observe(item));
+      document.querySelectorAll(".fade-up").forEach((item) => revealObserver.observe(item));
+    } else {
+      document.querySelectorAll(".fade-up").forEach((item) => item.classList.add("in-view"));
+    }
 
     document.querySelectorAll(".portfolio-filter button").forEach((button) => {
       button.addEventListener("click", () => {
@@ -942,10 +1077,12 @@
       activateNav();
     });
 
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       toggleNavScroll();
       activateNav();
-      AOS.init({ duration: 800, once: true });
+      if (window.AOS && typeof AOS.init === "function") {
+        AOS.init({ duration: 800, once: true });
+      }
     });
   </script>
 
