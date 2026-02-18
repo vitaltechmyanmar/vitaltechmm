@@ -373,39 +373,6 @@
       padding: 1.4rem;
     }
 
-    .quote-card {
-      height: 100%;
-      padding: 1.4rem;
-      position: relative;
-    }
-
-    .quote-mark {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 2.4rem;
-      line-height: 1;
-      color: rgba(47, 211, 198, 0.65);
-      margin-bottom: 0.55rem;
-    }
-
-    .client-role {
-      color: #cfe7ff;
-      font-size: 0.92rem;
-      font-weight: 600;
-    }
-
-    .trust-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.04);
-      color: #d9ebff;
-      border-radius: 999px;
-      padding: 0.45rem 0.82rem;
-      font-size: 0.82rem;
-      margin: 0.3rem 0.35rem 0 0;
-    }
-
     .faq-shell {
       padding: 1.5rem;
     }
@@ -439,15 +406,6 @@
       color: var(--muted);
       background: rgba(255, 255, 255, 0.02);
       padding: 0.95rem 1.1rem 1.1rem;
-    }
-
-    .cta-strip {
-      padding: 1.6rem;
-      background:
-        radial-gradient(circle at 12% 40%, rgba(47, 211, 198, 0.2), transparent 42%),
-        linear-gradient(120deg, rgba(17, 39, 58, 0.92), rgba(13, 53, 79, 0.86));
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .form-control,
@@ -586,9 +544,7 @@
       .portfolio-card,
       .team-card,
       .contact-box,
-      .quote-card,
-      .faq-shell,
-      .cta-strip {
+      .faq-shell {
         padding: 1.2rem;
       }
 
@@ -599,6 +555,7 @@
       .stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
     }
 
     @media (max-width: 575px) {
@@ -640,10 +597,6 @@
 
       .portfolio-filter button {
         white-space: nowrap;
-      }
-
-      .trust-chip {
-        font-size: 0.78rem;
       }
 
       .team-photo {
@@ -904,38 +857,6 @@
       </div>
     </section>
 
-    <section id="testimonials">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>What Clients Say</h2>
-          <p>Client feedback from enterprise projects delivered by Vital Tech Myanmar.</p>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-4" data-aos="fade-up">
-            <article class="glass-card quote-card">
-              <div class="quote-mark">“</div>
-              <p class="mb-3">Their migration team handled planning and cutover with minimal disruption. We moved faster than expected and saw fewer support tickets after go-live.</p>
-              <p class="mb-0 client-role">IT Manager, Logistics Company</p>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="110">
-            <article class="glass-card quote-card">
-              <div class="quote-mark">“</div>
-              <p class="mb-3">Security hardening and monitoring setup were practical and clear. Response times improved and our audit preparation became much easier.</p>
-              <p class="mb-0 client-role">Head of Infrastructure, Financial Services</p>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="190">
-            <article class="glass-card quote-card">
-              <div class="quote-mark">“</div>
-              <p class="mb-3">Their team works like an extension of ours. Reliable communication, strong technical ownership, and measurable improvements in uptime.</p>
-              <p class="mb-0 client-role">Operations Lead, Manufacturing Group</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="team">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
@@ -1130,23 +1051,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="cta-strip d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3" data-aos="fade-up">
-          <div>
-            <h4 class="mb-2">Need a practical plan for your next IT project?</h4>
-            <p class="text-muted-custom mb-2">Book a free consultation and get a scoped action plan from our engineering team.</p>
-            <div>
-              <span class="trust-chip"><i class="bi bi-lightning-charge"></i> Fast Response</span>
-              <span class="trust-chip"><i class="bi bi-shield-check"></i> Enterprise Focus</span>
-              <span class="trust-chip"><i class="bi bi-graph-up-arrow"></i> Outcome Driven</span>
-            </div>
-          </div>
-          <a href="#contact" class="btn btn-brand px-4 py-2">Book Free Consultation</a>
         </div>
       </div>
     </section>
