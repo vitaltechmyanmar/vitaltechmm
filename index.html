@@ -449,6 +449,60 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
+    .techstack-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .techstack-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      min-height: 120px;
+      text-align: center;
+      padding: 1rem 0.8rem;
+      border-color: rgba(255, 255, 255, 0.2);
+      transition: transform var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard);
+    }
+
+    .techstack-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--tech-color);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .techstack-logo-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .techstack-logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .techstack-logo-wide {
+      width: 44px;
+      height: 28px;
+    }
+
+    .techstack-name {
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #f2f8ff;
+    }
+
     @keyframes floating {
       0%,
       100% {
@@ -556,6 +610,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .techstack-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
     }
 
     @media (max-width: 575px) {
@@ -619,6 +677,11 @@
       .stats-grid {
         grid-template-columns: 1fr;
       }
+
+      .techstack-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -639,6 +702,7 @@
             <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#techstack">Tech Stack</a></li>
             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -658,6 +722,7 @@
           <li><a class="nav-link" href="#hero" data-nav-close>Home</a></li>
           <li><a class="nav-link" href="#about" data-nav-close>About</a></li>
           <li><a class="nav-link" href="#services" data-nav-close>Services</a></li>
+          <li><a class="nav-link" href="#techstack" data-nav-close>Tech Stack</a></li>
           <li><a class="nav-link" href="#portfolio" data-nav-close>Portfolio</a></li>
           <li><a class="nav-link" href="#team" data-nav-close>Team</a></li>
           <li><a class="nav-link" href="#contact" data-nav-close>Contact</a></li>
@@ -798,6 +863,59 @@
               <p class="text-muted-custom mb-0">Technical advisory and practical team training for long-term capacity.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="techstack">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Tech Stack</h2>
+          <p>Platforms and tools we use for enterprise cloud, automation, and operations delivery.</p>
+        </div>
+        <div class="techstack-grid" data-aos="fade-up" data-aos-delay="80">
+          <article class="glass-card techstack-card" style="--tech-color:#EE0000;">
+            <div class="techstack-logo-wrap">
+              <img src="https://cdn.simpleicons.org/redhat/EE0000" class="techstack-logo" alt="Red Hat logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">Red Hat</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#FF9900;">
+            <div class="techstack-logo-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" class="techstack-logo techstack-logo-wide" alt="AWS logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">AWS</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#5E5E5E;">
+            <div class="techstack-logo-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" class="techstack-logo" alt="Microsoft logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">Microsoft</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#2496ED;">
+            <div class="techstack-logo-wrap">
+              <img src="https://cdn.simpleicons.org/docker/2496ED" class="techstack-logo" alt="Docker logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">Docker</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#326CE5;">
+            <div class="techstack-logo-wrap">
+              <img src="https://cdn.simpleicons.org/kubernetes/326CE5" class="techstack-logo" alt="Kubernetes logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">Kubernetes</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#844FBA;">
+            <div class="techstack-logo-wrap">
+              <img src="https://cdn.simpleicons.org/terraform/844FBA" class="techstack-logo" alt="Terraform logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">Terraform</span>
+          </article>
+          <article class="glass-card techstack-card" style="--tech-color:#FC6D26;">
+            <div class="techstack-logo-wrap">
+              <img src="https://cdn.simpleicons.org/gitlab/FC6D26" class="techstack-logo" alt="GitLab logo" loading="lazy" decoding="async">
+            </div>
+            <span class="techstack-name">GitLab</span>
+          </article>
         </div>
       </div>
     </section>
