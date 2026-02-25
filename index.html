@@ -376,6 +376,12 @@
       object-position: center 28%;
     }
 
+    html.aos-fallback [data-aos] {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
     .contact-box {
       padding: 1.4rem;
     }
@@ -1031,10 +1037,10 @@
                 <img src="assets/img/team/kyawthet.webp" class="team-photo" alt="Kyaw Thet Htun" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Kyaw Thet Htun</h5>
-                  <p class="mb-0 text-muted-custom">Cloud Engineer</p>
+                  <p class="mb-0 text-muted-custom">Project Coordinator</p>
                 </div>
               </div>
-              <p class="text-muted-custom mb-0">Builds cloud deployments and operational tooling for production workloads.</p>
+              <p class="text-muted-custom mb-0">Coordinates project scope, timelines,and team delivery to keep implementations on track.</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
@@ -1043,7 +1049,7 @@
                 <img src="assets/img/team/kyawswar.jpg" class="team-photo kyawswar-photo" alt="Kyaw Swar Min" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Kyaw Swar Min</h5>
-                  <p class="mb-0 text-muted-custom">Senior Cloud / DevOps Engineer</p>
+                  <p class="mb-0 text-muted-custom">Senior DevOps Engineer</p>
                 </div>
               </div>
               <p class="text-muted-custom mb-0">Automates delivery pipelines and improves reliability through DevOps practices.</p>
@@ -1079,10 +1085,10 @@
                 <img src="assets/img/team/aungmyinthtun.webp" class="team-photo" alt="Aung Myint Htun" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Aung Myint Htun</h5>
-                  <p class="mb-0 text-muted-custom">IT Specialist</p>
+                  <p class="mb-0 text-muted-custom">System Engineer</p>
                 </div>
               </div>
-              <p class="text-muted-custom mb-0">Provides technical implementation and operational support for IT services.</p>
+              <p class="text-muted-custom mb-0">Maintains server and infrastructure operations, troubleshooting issues and improving system stability.</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="540">
@@ -1091,10 +1097,10 @@
                 <img src="assets/img/team/team-3.jpg" class="team-photo" alt="San Lynn Aung" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">San Lynn Aung</h5>
-                  <p class="mb-0 text-muted-custom">IT Support Specialist</p>
+                  <p class="mb-0 text-muted-custom">EUC Engineer</p>
                 </div>
               </div>
-              <p class="text-muted-custom mb-0">Focuses on user support, endpoint readiness, and service continuity.</p>
+              <p class="text-muted-custom mb-0">Manages end-user computing devices, endpoint readiness, and user support for daily operations.</p>
             </div>
           </div>
         </div>
@@ -1237,7 +1243,7 @@
       link.addEventListener("click", closeMobileNav);
     });
 
-    const supportsHoverPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const supportsHoverPointer = typeof window.matchMedia === "function" && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
     if (supportsHoverPointer) {
       document.addEventListener("mousemove", (event) => {
@@ -1327,16 +1333,35 @@
       });
     }, { passive: true });
 
+    const enableAosFallback = () => {
+      document.documentElement.classList.add("aos-fallback");
+      document.querySelectorAll("[data-aos]").forEach((el) => el.classList.add("aos-animate"));
+    };
+
     document.addEventListener("DOMContentLoaded", () => {
       toggleNavScroll();
       activateNav();
-      if (window.AOS && typeof AOS.init === "function") {
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduceMotion = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const shouldUseAos = !reduceMotion && window.innerWidth >= 768 && window.AOS && typeof AOS.init === "function";
+
+      if (!shouldUseAos) {
+        enableAosFallback();
+        return;
+      }
+
+      try {
         AOS.init({
           duration: 700,
           once: true,
-          disable: reduceMotion || window.innerWidth < 768
+          disable: false
         });
+
+        window.setTimeout(() => {
+          const initialized = document.querySelector("[data-aos].aos-init");
+          if (!initialized) enableAosFallback();
+        }, 700);
+      } catch (error) {
+        enableAosFallback();
       }
     });
   </script>
