@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">MikroTik</title>
+  <desc id="desc">MikroTik logo for offline use</desc>
+  <rect width="256" height="256" rx="32" fill="#111111"/>
+  <path fill="#ffffff" d="M46 170 97 74h30l-25 48 22 48h-29l-9-20-10 20z"/>
+  <path fill="#ffffff" d="M124 170l47-96h39l-47 96h-39z"/>
+</svg>

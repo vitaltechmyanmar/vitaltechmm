@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Check Point</title>
+  <desc id="desc">Check Point icon fallback for offline use</desc>
+  <rect width="256" height="256" rx="32" fill="#E60000"/>
+  <circle cx="128" cy="128" r="64" fill="none" stroke="#ffffff" stroke-width="16"/>
+  <circle cx="128" cy="128" r="24" fill="#ffffff"/>
+</svg>
