@@ -364,9 +364,16 @@
     .team-photo {
       width: 82px;
       height: 82px;
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+      display: block;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .kyawswar-photo {
+      object-position: center 28%;
     }
 
     .contact-box {
@@ -1033,7 +1040,7 @@
           <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
             <div class="glass-card team-card">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="assets/img/team/team-3.jpg" class="team-photo" alt="Kyaw Swar Min" loading="lazy" decoding="async">
+                <img src="assets/img/team/kyawswar.jpg" class="team-photo kyawswar-photo" alt="Kyaw Swar Min" loading="lazy" decoding="async">
                 <div>
                   <h5 class="mb-1">Kyaw Swar Min</h5>
                   <p class="mb-0 text-muted-custom">Senior Cloud / DevOps Engineer</p>
